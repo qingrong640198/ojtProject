@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+ <appender name="STDOUT"
+  class="ch.qos.logback.core.ConsoleAppender">
+  <encoder>
+   <pattern>%d %p (%file:%line\)- %m%n</pattern>
+   <charset>UTF-8</charset>
+  </encoder>
+ </appender>
+<appender name="debuglog"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>D:/OJT2022/Log/OJTDemo.log</File>
+        <filter
+            class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+        <rollingPolicy
+            class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>D:/OJT2022/Log/OJTDemo.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d %p (%file:%line\)- %m%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+</appender>
+ <root level="DEBUG">
+  <appender-ref ref="STDOUT" />
+  <appender-ref ref="debuglog" />
+ </root>
+</configuration>

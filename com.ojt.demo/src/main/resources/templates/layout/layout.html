@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<!-- 共通的head -->
+<head th:fragment="head(id,title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!--插件js-->
+    <script type="text/javascript" th:src="@{/js/public/jquery-3.4.1.min.js}"></script>
+    <!--共通js-->
+    <script type="text/javascript" th:src="@{/js/common/common.js}"></script>
+    <!-- 各页面css,通过id变量实现了各画面引入自己的css文件 -->
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/' + ${id} + '.css'}" />
+    <link rel="icon" th:href="@{/img/logo.ico}" />
+    <title th:replace="${title} ?: _">模板中的标题</title>
+</head>
+<body>
+    <footer th:fragment="footer_fragment">
+        Copyright ©测试系统页脚
+    </footer>
+</body>
+</html>

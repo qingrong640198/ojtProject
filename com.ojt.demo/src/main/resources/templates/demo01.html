@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(id = 'demo01',title = ~{::title})">
+    <title>demo01页面的title</title>
+</head>
+<body>
+    <div id="container">
+        测试页面
+    </div>
+</body>
+<script th:src="@{/js/demo01.js}"></script>
+</html>
